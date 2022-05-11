@@ -17,9 +17,8 @@ var isAnagram = function (s, t) {
 
   // map t to an object with key value pairs
   const t_Obj = {};
-  t.split('').forEach(char => t_Obj[char] ? t_Obj[char]++ : t_Obj[char] = 0);
-//   console.log(t_Obj)
-
+  t.split('').forEach(char => t_Obj[char] !== undefined ? t_Obj[char]++ : t_Obj[char] = 0);
+  // console.log(t_Obj)
 
   // iterate through s and check if object contains key 
   for (let i = 0; i < s.length; i++) {
@@ -28,13 +27,13 @@ var isAnagram = function (s, t) {
     // console.log(t_Obj)
   }
 
-  return Object.keys(t_Obj).length === 0;
+  return Object.keys(t_Obj).every(el => el === 0);
 }
 
 // const s = 'aaca'
 // const t = 'acac'
-// console.log(isAnagram(s, t))
+// console.log(isAnagram(s, t)) // false
 
 const s = 'anagram'
 const t = 'nagaram'
-console.log(isAnagram(s, t))
+console.log(isAnagram(s, t)) // true

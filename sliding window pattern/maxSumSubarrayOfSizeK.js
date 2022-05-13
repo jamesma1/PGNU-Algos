@@ -1,5 +1,7 @@
 // Given an array of positive numbers and a positive number ‘k,’ find the maximum sum of any contiguous subarray of size ‘k’.
 
+// level: easy
+
 const max_sub_array_of_size_k = function (k, arr) {
   // TODO: Write your code here
   let maxSum = 0;

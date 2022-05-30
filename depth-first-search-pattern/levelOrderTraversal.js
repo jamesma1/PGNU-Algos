@@ -13,6 +13,8 @@ class TreeNode {
 // once iterated over, shift off node and decrement level size 
 
 // problem: traverse all nodes using Breadth First Search 
+// level: easy
+
 
 const levelOrderTraversal = function (root) {
   const result = [];

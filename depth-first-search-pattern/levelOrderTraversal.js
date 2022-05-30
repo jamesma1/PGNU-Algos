@@ -15,29 +15,29 @@ class TreeNode {
 // problem: traverse all nodes using Breadth First Search 
 
 const levelOrderTraversal = function (root) {
-  if (root === null) return;
+  const result = [];
+
+  if (root === null) return result;
 
   const queue = [root];
-  let levelSize = 1;
     
   while (queue.length > 0) {
+    const levelSize = queue.length;
 
-    while (levelSize > 0) {
+    for (let i = 0; i < levelSize; i++) {
       const currentNode = queue.shift();
-      levelSize--;
-        
-      console.log(currentNode);
+      result.push(currentNode.value)
 
       if (currentNode.left) {
         queue.push(currentNode.left);
-        levelSize++;
       }
       if (currentNode.right) {
         queue.push(currentNode.right);
-        levelSize++;
       }
     }
   }
+
+  return result;
 }
 
 var root = new TreeNode(12);
@@ -47,4 +47,4 @@ root.left.left = new TreeNode(9);
 root.right.left = new TreeNode(10);
 root.right.right = new TreeNode(5);
 
-levelOrderTraversal(root); // [[12],[7,1],[9,10,5]] 
+console.log(levelOrderTraversal(root)) // [[12],[7,1],[9,10,5]] 

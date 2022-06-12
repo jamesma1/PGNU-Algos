@@ -18,9 +18,7 @@ class TreeNode {
 //   if (root === null) return allPaths;
     
 //   const stack = [[root, root.value, [root.value]]];
-//   // console.log(stack.pop())
-//   // const [currentNode, currentSum, currentPath] = stack.pop();
-//   // console.log(Array.isArray(currentPath))
+//   const [currentNode, currentSum, currentPath] = stack.pop();
 //   while (stack.length > 0) {
 //     const [currentNode, currentSum, currentPath] = stack.pop();
       
@@ -28,8 +26,6 @@ class TreeNode {
 
 //     if (currentNode.left) {
 //       const leftSum = currentSum + currentNode.left.value;
-//       // console.log(currentPath)
-//       // console.log(Array.isArray(currentPath))
 //       const leftPath = [...currentPath, currentNode.left.value];
 //       stack.push([currentNode.left, leftSum, leftPath]);
 //     }
@@ -44,15 +40,32 @@ class TreeNode {
 
 
 // recursive solution:
-const find_paths = function(root, sum) {
+const find_paths = function (root, sum) {
+  if (root === null) return [];
+
   const allPaths = [];
-  
-    if (root === null) return allPaths;
-    if (root.left){}
+  find_paths_recursive(root, sum, [root.value], allPaths);
+
+  return allPaths;
 };
 
+const find_paths_recursive = (currentNode, sum, currentPath, allPaths) => {
+  if (currentNode.value === sum && currentNode.left === null && currentNode.right === null) {
+    allPaths.push(currentPath);
+  }
+
+  if (currentNode.left) {
+    find_paths_recursive(currentNode.left, sum - currentNode.value, [...currentPath, currentNode.left.value], allPaths);
+  }
+  if (currentNode.right) {
+    find_paths_recursive(currentNode.right, sum - currentNode.value, [...currentPath, currentNode.right.value], allPaths);
+  }
+}
 
 
+//     12
+//    7  1
+//   4  10 5
 var root = new TreeNode(12)
 root.left = new TreeNode(7)
 root.right = new TreeNode(1)

@@ -10,24 +10,44 @@ class TreeNode {
   }
 }
 
-//Root-Left-Right
+// // iterative solution:
+// const find_sum_of_path_numbers = function (root) {
+//   if (root === null) return 0;
 
+//   const stack = [[root, root.value]];
+//   let sum = 0;
+
+//   while (stack.length > 0) {
+//     const [currentNode, currentNum] = stack.pop();
+    
+//     if (currentNode.left === null && currentNode.right === null) {
+//       sum += currentNum; 
+//     }
+
+//     if (currentNode.left) {
+//       stack.push([currentNode.left, currentNum * 10 + currentNode.left.value]);
+//     }
+//     if (currentNode.right) {
+//       stack.push([currentNode.right, currentNum * 10 + currentNode.right.value]);
+//     }
+//   }
+//   return sum;
+// };
+
+// recursive solution:
 const find_sum_of_path_numbers = function (root, string = '') {
+  if (root == null) return 0;
+  if (root.left === null && root.right == null) return parseInt(string + root.value, 10);
 
-  if (!root.left && !root.right) return parseInt(string + root.value, 10);
-
-  if (root.left && root.right) return find_sum_of_path_numbers(root.left, string + root.value) + find_sum_of_path_numbers(root.right, string + root.value);
-  else if (root.left) return find_sum_of_path_numbers(root.left, string + root.value);
-  else if (root.right) return find_sum_of_path_numbers(root.right, string + root.value);
+  return find_sum_of_path_numbers(root.left, string + root.value) + find_sum_of_path_numbers(root.right, string + root.value) 
 };
 
 
 var root = new TreeNode(1)
-root.left = new TreeNode(0)
-root.right = new TreeNode(1)
-root.left.left = new TreeNode(1)
-root.right.left = new TreeNode(6)
-root.right.right = new TreeNode(5)
+root.left = new TreeNode(7)
+root.right = new TreeNode(9)
+root.right.left = new TreeNode(2)
+root.right.right = new TreeNode(9)
 console.log(`Total Sum of Path Numbers: ${find_sum_of_path_numbers(root)}`)
 
 // time complexity: The time complexity of the above algorithm is O(N), where ‘N’ is the total number of nodes in the tree.This is due to the fact that we traverse each node once.

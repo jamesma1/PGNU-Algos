@@ -14,8 +14,8 @@ class TreeNode {
   
   // tree traversal using 'next' pointer
   print_tree() {
-    result = 'Traversal using \'next\' pointer: ';
-    current = this;
+    let result = 'Traversal using \'next\' pointer: ';
+    let current = this;
     while (current != null) {
       result += current.value + ' ';
       current = current.next;

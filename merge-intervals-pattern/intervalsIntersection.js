@@ -14,11 +14,25 @@ class Interval {
 }
 
 const merge = function (intervals_a, intervals_b) {
-  let result = [];
-  
+  const output = [];
+  let i = 0;
+  let j = 0;
 
+  while (i < firstList.length && j < secondList.length) {
+    const [s1, e1] = firstList[i];
+    const [s2, e2] = secondList[j];
 
-  return result;
+    // check if interval1 insersects interval2
+    const min = Math.max(s1, s2); // start of intersection
+    const max = Math.min(e1, e2); // end of intersection
+
+    // <= to handle same start/end of intersection: [5, 5]
+    if (min <= max) output.push([min, max]);
+
+    // increment the pointer which end is < the other end)
+    if (e1 < e2) i++;
+    else j++;
+  }
 };
 
 process.stdout.write("Intervals Intersection: ");

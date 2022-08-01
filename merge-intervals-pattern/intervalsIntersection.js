@@ -54,3 +54,13 @@ for (i = 0; i < result.length; i++) {
   result[i].print_interval();
 }
 console.log();
+
+/* 
+Time complexity:
+As we are iterating through both the lists once, the time complexity of the above algorithm is O(N + M), 
+where ‘N’ and ‘M’ are the total number of intervals in the input arrays respectively.
+
+Space complexity:
+Ignoring the space needed for the result list, the algorithm runs in constant space O(1)
+
+*/

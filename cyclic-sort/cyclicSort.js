@@ -13,15 +13,25 @@ level: easy
  its correct index. This way, we will go through all numbers and place them at their correct indices, hence, sorting the whole array.
 */
 
-// const cyclic_sort = function (nums) {
-//   for (let i = 0; i < nums.length; i++) {
-//     while (nums[i] !== i + 1) {
-//       let incorrect = nums[i];
-//       [nums[incorrect - 1], nums[i]]= [incorrect, nums[incorrect - 1]];
-//     }
-//   }
-//   return nums;
-// };
+const cyclic_sort = function (nums) {
+  for (let i = 0; i < nums.length; i++) {
+    while (nums[i] !== i + 1) {
+      let original_nums_i = nums[i];
+      if (nums[i] != original_nums_i - 1) {
+        [nums[original_nums_i - 1], nums[i]] = [
+          original_nums_i,
+          nums[original_nums_i - 1],
+        ];
+      }
+    }
+  }
+  return nums;
+};
+
+/* 
+time: O(n^2)
+space: O(1)
+*/
 
 function cyclic_sort(nums) {
   let i = 0;

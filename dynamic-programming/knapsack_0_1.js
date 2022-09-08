@@ -63,8 +63,16 @@ Now two possibilities can take place:
 
 (1) Fill ‘wi’ in the given column. (TAKE IT)
 (2) Do not fill ‘wi’ in the given column. (LEAVE IT)
-Now we have to take a maximum of these two possibilities, formally if we do not fill ‘ith’ weight in ‘jth’ column then DP[i][j] state will be same as DP[i-1][j] but if we fill the weight, DP[i][j] will be equal to the value of ‘wi’+ value of the column weighing ‘j-wi’ in the previous row. So we take the maximum of these two possibilities to fill the current state. This visualisation will make the concept clear:  
+Now we have to take a maximum of these two possibilities, formally if we do not fill ‘ith’ weight in ‘jth’ column then DP[i][j] state will 
+be same as DP[i-1][j] but if we fill the weight, DP[i][j] will be equal to the value of ‘wi’+ value of the column weighing ‘j-wi’ in the previous row. 
+So we take the maximum of these two possibilities to fill the current state.
+
+Time Complexity: O(N*W). 
+where ‘N’ is the number of weight element and ‘W’ is capacity. As for every weight element we traverse through all weight capacities 1<=w<=W.
+Auxiliary Space: O(N*W). 
+The use of 2-D array of size ‘N*W’.
 */
+
 // A utility function that returns
 // maximum of two integers
 function max(a, b) {

@@ -1,6 +1,7 @@
 /* 
 Given an array of numbers and a number ‘k’, find the median of all the ‘k’ sized sub-arrays (or windows) of the array.
 
+level: hard 
 */
 
 const Heap = require("./collections/heap"); //http://www.collectionsjs.com
@@ -69,3 +70,18 @@ console.log(`Sliding window medians are: ${result}`);
 slidingWindowMedian = new SlidingWindowMedian();
 result = slidingWindowMedian.find_sliding_window_median([1, 2, -1, 3, 5], 3);
 console.log(`Sliding window medians are: ${result}`);
+
+/*
+Time complexity:
+The time complexity of our algorithm is O(N*K), where ‘N’ is the total number of elements in the 
+input array and ‘K’ is the size of the sliding window. This is due to the fact that we are going
+through all the ‘N’ numbers and, while doing so, we are doing two things:
+
+(1) Inserting/removing numbers from heaps of size ‘K’. This will take O(logK).
+(2) Removing the element going out of the sliding window. This will take O(K)
+ as we will be searching this element in an array of size ‘K’ (i.e., a heap).
+ 
+Space complexity:
+Ignoring the space needed for the output array, the space complexity will be O(K)
+because, at any time, we will be storing all the numbers within the sliding window.
+*/

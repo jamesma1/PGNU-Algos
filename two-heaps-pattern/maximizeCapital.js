@@ -56,3 +56,12 @@ console.log(
 console.log(
   `Maximum capital: ${find_maximum_capital([0, 1, 2, 3], [1, 2, 3, 5], 3, 0)}`
 );
+
+/* 
+Time complexity:
+Since, at the most, all the projects will be pushed to both the heaps once, the time complexity of our algorithm is O(NlogN + KlogN),
+ where ‘N’ is the total number of projects and ‘K’ is the number of projects we are selecting.
+
+Space complexity:
+The space complexity will be O(N) because we will be storing all the projects in the heaps.
+*/

@@ -145,3 +145,37 @@ let MaxHeap = function () {
     return smallest;
   };
 };
+
+/* 
+// Priority Queue Implementation for Etsy:
+class QueueElement {
+    constructor(value, priority) {
+        this.value = value;
+        this.priority = priority;
+    }
+}
+class PriorityQueue {
+    constructor() {
+        this.items = [];
+    }
+    add(value, priority) {
+        const newItem = new QueueElement(value, priority);
+        let added = false;
+        if (this.items.length) {
+            let i = 0;
+            while (i < this.items.length && !added) {
+                if (this.items[i].priority > newItem.priority) {
+                    this.items.splice(i, 0, newItem);
+                    added = true;
+                }
+                i++;
+            }
+        }
+        if (!added) this.items.push(newItem);
+    }
+    pop() {
+        const highestPriority = this.items.shift();
+        return highestPriority.value
+    }
+}
+*/

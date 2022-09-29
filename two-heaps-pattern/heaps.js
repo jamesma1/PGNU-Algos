@@ -1,4 +1,18 @@
-/* Heaps */
+/* Heaps 
+
+When to use:
+-Use heaps whenever you need quick access to the largest (or smallest) item, 
+because that item will always be the first element in the array or at the root of the tree.
+-However, the remainder of the array is kept partially unsorted. Thus, instant access is 
+only possible to the largest (smallest) item. Insertions are fast, so it's a good way to
+deal with incoming events or data and always have access to the earliest/biggest.
+-Useful for priority queues, schedulers (where the earliest item is desired), etc...
+-A heap is a tree where a parent node's value is larger than that of any of its descendant nodes.
+-If you think of a heap as a binary tree stored in linear order by depth, with the root node first
+(then the children of that node next, then the children of those nodes next); then the children of
+a node at index N are at 2N+1 and 2N+2. This property allows quick access-by-index. And since heaps
+are manipulated by swapping nodes, this allows for in-place sorting.
+*/
 
 // left child: i * 2
 // right child: i * 2 + 1

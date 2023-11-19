@@ -43,6 +43,7 @@ function rotate(head, rotations) {
   }
   last_node.next = head; // connect the last node with the head to make it a circular list
   rotations %= list_length; // no need to do rotations more than the length of the list
+  console.log('rot', rotations)
   skip_length = list_length - rotations;
   last_node_of_rotated_list = head;
   for (i = 0; i < skip_length - 1; i++) {
